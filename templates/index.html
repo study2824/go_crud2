@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link type="text/css" rel="stylesheet" href="../static/css/materialize.css">
+    <title>Gin Todo</title>
+</head>
+<body>
+<div class="container">
+    <h1>Todo List</h1>
+    <table>
+        <tr>
+            <th>id</th>
+            <th>title</th>
+            <th>status</th>
+            <th>created_at</th>
+            <th>#</th>
+            <th>#</th>
+        </tr>
+        {{range .todos}}
+            <tr>
+                <td>{{.ID}}</td>
+                <td>{{.Title}}</td>
+                <td>{{.Status}}</td>
+                <td>{{.CreatedAt}}</td>
+                <td><a href="/detail/{{.ID}}">編集</a></td>
+                <td><a href="/delete/{{.ID}}">削除</a></td>
+            </tr>
+        {{end}}
+    </table>
+    <a href="/add">リストを追加する</a>
+</div>
+<script type="text/javascript" src="../static/js/materialize.js"></script>
+</body>
+</html>
